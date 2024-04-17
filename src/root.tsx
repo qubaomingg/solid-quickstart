@@ -1,5 +1,6 @@
 // @refresh reload
 import { Suspense } from "solid-js";
+import ids from './ids';
 import {
   A,
   Body,
@@ -23,15 +24,19 @@ export default function Root() {
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Body>
-        <Suspense>
-          <ErrorBoundary>
-            <A href="/">Index</A>
-            <A href="/about">About</A>
-            <Routes>
-              <FileRoutes />
-            </Routes>
-          </ErrorBoundary>
-        </Suspense>
+        <h1>test</h1>
+        <div>
+          <ul>
+            {ids.map((id) => (
+              <li key={id}>
+                <a
+                  target="_blank"
+                  href={`https://ai.feishu.cn/lingo/detail/${id}`}
+                >{`https://ai.feishu.cn/lingo/detail/${id}`}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <Scripts />
       </Body>
     </Html>
